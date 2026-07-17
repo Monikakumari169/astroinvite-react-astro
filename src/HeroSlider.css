@@ -151,3 +151,57 @@
     transform: translateY(0);
   }
 }
+.astro-services-main-head {
+  padding: 40px 0;
+  position: relative;
+  z-index: 2; /* Ensures it sits neatly on top of the star background canvas */
+      background-color: #fff;
+
+}
+
+.astro-section-wrap {
+  max-width: 1250px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.astro-text-center {
+  text-align: center;
+}
+
+.astro-mb-5 {
+  margin-bottom: 3rem;
+}
+
+.astro-section-main-title {
+  font-size: 50px;
+  font-weight: 800;
+  color: #000000; /* Matching your raw inline style */
+  margin: 0;
+}
+
+/* Light background pages look best with black text, but we can match the gold styling for the span */
+.astro-section-main-title span {
+  color: #ff9900; 
+}
+
+.astro-section-title-desc {
+  color: #666666; /* Fallback color for var(--text-muted) */
+  font-size: 18px;
+  line-height: 1.9;
+  margin-top: 24px;
+  max-width: 950px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Responsive Scaling for smaller displays */
+@media (max-width: 768px) {
+  .astro-section-main-title {
+    font-size: 32px;
+  }
+  .astro-section-title-desc {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+}

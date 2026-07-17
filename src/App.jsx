@@ -1,8 +1,7 @@
 import Header from './Header';
 import StarCanvas from './StarCanvas';
-import HeroSlider from './HeroSlider'; // Import the new slider
+import { HeroSlider, ServicesHead } from './HeroSlider';
 import './App.css';
-
 function App() {
   return (
     <div className="app-container" style={{ position: 'relative', minHeight: '100vh', background: '#0a0500' }}>
@@ -14,7 +13,7 @@ function App() {
       
       {/* 3. Hero Banner Slider */}
       <HeroSlider />
-
+      <ServicesHead />
 
     </div>
   );

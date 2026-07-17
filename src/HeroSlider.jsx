@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import './HeroSlider.css';
 
-const HeroSlider = () => {
+// 1. Export HeroSlider as a named component
+export const HeroSlider = () => {
   const slides = [
     {
       desktop_image: '/web-1.webp', 
@@ -22,7 +23,6 @@ const HeroSlider = () => {
 
   const [activeIndex, setActiveIndex] = useState(0);
 
-  // 1. Declare functions first so they exist in memory...
   const handlePrev = () => {
     setActiveIndex((prevIndex) => (prevIndex === 0 ? slides.length - 1 : prevIndex - 1));
   };
@@ -35,7 +35,6 @@ const HeroSlider = () => {
     setActiveIndex(index);
   };
 
-  // 2. Now the useEffect can safely call handleNext!
   useEffect(() => {
     const interval = setInterval(() => {
       handleNext();
@@ -115,4 +114,24 @@ const HeroSlider = () => {
   );
 };
 
-export default HeroSlider;
+// 2. Export ServicesHead as a named component
+export const ServicesHead = () => {
+  return (
+    <section id="astro-services-main-head" className="astro-services-main-head">
+      <div className="astro-section-wrap">
+        <div className="astro-text-center astro-mb-5 astro-reveal astro-visible">
+          <h1 className="astro-section-main-title astro-section-title">
+            Astrology Guidance by <span>Astro Sachin Pandit</span>
+          </h1>
+          <p className="astro-section-title-desc">
+            For over 30 years, AstroInvite has helped people find clarity through accurate Kundli analysis, 
+            Vedic astrology guidance, and personalized remedies. Whether you need answers about career, 
+            marriage, health, finance, or life direction, our experienced astrologers provide practical 
+            and trusted advice based on your birth chart. Get meaningful insights that help you make 
+            confident decisions at the right time.
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+};
