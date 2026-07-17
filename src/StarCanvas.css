@@ -1,0 +1,10 @@
+.astro-background-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1; /* Places it behind your header and body content */
+  pointer-events: none; /* Allows users to click buttons/links through the canvas */
+  background: transparent; /* Lets any page-specific backgrounds show through */
+}

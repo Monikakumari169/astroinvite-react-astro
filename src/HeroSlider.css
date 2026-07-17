@@ -1,0 +1,153 @@
+/* ── Hero Slider ────────────────────────────────────────────────── */
+#heroSection { 
+  position: relative; 
+  overflow: hidden; 
+  width: 100%;
+}
+
+.hero-carousel {
+  position: relative;
+  width: 100%;
+}
+
+.carousel-inner {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Hide inactive slides and fade in active ones */
+.carousel-item {
+  display: none;
+  width: 100%;
+  transition: opacity 0.6s ease-in-out;
+}
+
+.carousel-item.active {
+  display: block;
+}
+
+.hero-slide {
+  position: relative;
+  height: 70vh;
+  min-height: 450px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.hero-slide-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center center;
+}
+
+/* Fallback/Overlay styles */
+.hero-slide-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(0,0,0,.82) 0%, rgba(0,0,0,.55) 55%, rgba(0,0,0,.15) 100%);
+  z-index: 1;
+}
+
+/* Controls & Indicators */
+.carousel-control-prev, .carousel-control-next {
+  position: absolute;
+  width: 48px; 
+  height: 48px;
+  top: 50%; 
+  transform: translateY(-50%); 
+  border: 1px solid rgba(245,151,10,.5);
+  border-radius: 50%;
+  background: rgba(0,0,0,.3);
+  backdrop-filter: blur(8px);
+  transition: all .3s ease;
+  opacity: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  color: white;
+}
+
+.carousel-control-prev { left: 20px; }
+.carousel-control-next { right: 20px; }
+
+.carousel-control-prev:hover, .carousel-control-next:hover { 
+  background: #ff9900; 
+  border-color: #ff9900; 
+}
+
+.carousel-control-prev::before {
+  content: '‹';
+  font-size: 30px;
+  line-height: 1;
+}
+
+.carousel-control-next::before {
+  content: '›';
+  font-size: 30px;
+  line-height: 1;
+}
+
+.carousel-indicators { 
+  position: absolute;
+  bottom: 24px; 
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px; 
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  z-index: 10;
+}
+
+.carousel-indicators button { 
+  width: 8px; 
+  height: 8px; 
+  border-radius: 50%; 
+  background: rgba(255,255,255,.35); 
+  border: none; 
+  transition: all .3s ease; 
+  cursor: pointer;
+}
+
+.carousel-indicators .active { 
+  background: #ff9900; 
+  width: 26px; 
+  border-radius: 4px; 
+}
+
+/* Media Queries for responsive backgrounds */
+@media (max-width: 767px) {
+  .desktop-bg {
+    display: none !important;
+  }
+  .mobile-bg {
+    display: block !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .desktop-bg {
+    display: block !important;
+  }
+  .mobile-bg {
+    display: none !important;
+  }
+}
+
+/* Animations */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
