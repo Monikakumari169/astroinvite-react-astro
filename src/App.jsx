@@ -1,20 +1,40 @@
 import Header from './Header';
 import StarCanvas from './StarCanvas';
-import { HeroSlider, ServicesHead } from './HeroSlider';
+import { HeroSlider, ServicesHead, Servicecards, Serviceabout, HomeYoutube, Blogsection, Ctasection, TestimonialsSection, FaqSection } from './HeroSlider';
+import Footer from './Footer';
 import './App.css';
+
 function App() {
   return (
-    <div className="app-container" style={{ position: 'relative', minHeight: '100vh', background: '#0a0500' }}>
-      {/* 1. Star Background */}
+    <div className="app-container" style={{ position: 'relative', minHeight: '100vh', background: '#ffffff' }}>
+      {/* 1. Star Canvas Background */}
       <StarCanvas />
 
-      {/* 2. Custom Header */}
+      {/* 2. Header */}
       <Header />
       
-      {/* 3. Hero Banner Slider */}
+      {/* 3. Hero Slider Banner */}
       <HeroSlider />
+
+      {/* 4. Services Headline */}
       <ServicesHead />
 
+      {/* 5. Service Cards Grid */}
+      <Servicecards />
+
+      <Serviceabout />
+
+      <HomeYoutube />
+
+      <Blogsection />
+
+      <Ctasection />
+
+      <TestimonialsSection />
+
+      <FaqSection />
+
+      <Footer />
     </div>
   );
 }

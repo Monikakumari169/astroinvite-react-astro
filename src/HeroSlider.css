@@ -155,7 +155,8 @@
   padding: 40px 0;
   position: relative;
   z-index: 2; /* Ensures it sits neatly on top of the star background canvas */
-      background-color: #fff;
+  background-color: #fff;
+  padding-bottom: 0px;
 
 }
 
