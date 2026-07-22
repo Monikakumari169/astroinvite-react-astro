@@ -3,6 +3,10 @@ import Header from './Header';
 import Footer from './Footer';
 import StarCanvas from './StarCanvas';
 
+// Import Page Component
+import AboutUs from './pages/AboutUs';
+
+// Import HomePage Sections
 import { 
   HeroSlider, 
   ServicesHead, 
@@ -17,8 +21,7 @@ import {
 
 import './App.css';
 
-// Placeholder Page Components
-const AboutUs = () => <div style={{ padding: '100px 20px', textAlign: 'center' }}><h1>About Us</h1></div>;
+// Placeholder Components for remaining pages
 const KundliReports = () => <div style={{ padding: '100px 20px', textAlign: 'center' }}><h1>Brahmvid Kundli Reports</h1></div>;
 const CallConsultation = () => <div style={{ padding: '100px 20px', textAlign: 'center' }}><h1>Call Consultation</h1></div>;
 const Blog = () => <div style={{ padding: '100px 20px', textAlign: 'center' }}><h1>Blog</h1></div>;
