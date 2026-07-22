@@ -910,7 +910,7 @@ export const FaqSection = ({
                   >
                     <p>{faq.question}</p>
                     <div className="faq-icon">
-                      <i className={`bi ${isOpen ? 'bi bi-plusS' : 'bi-plus'}`}></i>
+                      <i className={`bi ${isOpen ? 'bi bi-plus' : 'bi-plus'}`}></i>
                     </div>
                   </div>
 

@@ -3,8 +3,10 @@ import Header from './Header';
 import Footer from './Footer';
 import StarCanvas from './StarCanvas';
 
-// Import Page Component
+// Import Page Components (capitalized for React)
 import AboutUs from './pages/AboutUs';
+import CallConsultation from './pages/CallConsultation'; 
+
 
 // Import HomePage Sections
 import { 
@@ -22,8 +24,7 @@ import {
 import './App.css';
 
 // Placeholder Components for remaining pages
-const KundliReports = () => <div style={{ padding: '100px 20px', textAlign: 'center' }}><h1>Brahmvid Kundli Reports</h1></div>;
-const CallConsultation = () => <div style={{ padding: '100px 20px', textAlign: 'center' }}><h1>Call Consultation</h1></div>;
+const BrahmvidKundli = () => <div style={{ padding: '100px 20px', textAlign: 'center' }}><h1>Brahmvid Kundli Report</h1></div>;
 const Blog = () => <div style={{ padding: '100px 20px', textAlign: 'center' }}><h1>Blog</h1></div>;
 const ContactUs = () => <div style={{ padding: '100px 20px', textAlign: 'center' }}><h1>Contact Us</h1></div>;
 
@@ -52,7 +53,7 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePageLayout />} />
             <Route path="/about-us" element={<AboutUs />} />
-            <Route path="/brahmvid-kundli-reports" element={<KundliReports />} />
+            <Route path="/brahmvid-kundli-reports" element={<BrahmvidKundli />} />
             <Route path="/call-consultation" element={<CallConsultation />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/contact-us" element={<ContactUs />} />
