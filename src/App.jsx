@@ -1,41 +1,64 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './Header';
-import StarCanvas from './StarCanvas';
-import { HeroSlider, ServicesHead, Servicecards, Serviceabout, HomeYoutube, Blogsection, Ctasection, TestimonialsSection, FaqSection } from './HeroSlider';
 import Footer from './Footer';
+import StarCanvas from './StarCanvas';
+
+import { 
+  HeroSlider, 
+  ServicesHead, 
+  Servicecards, 
+  Serviceabout, 
+  HomeYoutube, 
+  Blogsection, 
+  Ctasection, 
+  TestimonialsSection, 
+  FaqSection 
+} from './HomePage';
+
 import './App.css';
+
+// Placeholder Page Components
+const AboutUs = () => <div style={{ padding: '100px 20px', textAlign: 'center' }}><h1>About Us</h1></div>;
+const KundliReports = () => <div style={{ padding: '100px 20px', textAlign: 'center' }}><h1>Brahmvid Kundli Reports</h1></div>;
+const CallConsultation = () => <div style={{ padding: '100px 20px', textAlign: 'center' }}><h1>Call Consultation</h1></div>;
+const Blog = () => <div style={{ padding: '100px 20px', textAlign: 'center' }}><h1>Blog</h1></div>;
+const ContactUs = () => <div style={{ padding: '100px 20px', textAlign: 'center' }}><h1>Contact Us</h1></div>;
+
+const HomePageLayout = () => (
+  <>
+    <HeroSlider />
+    <ServicesHead />
+    <Servicecards />
+    <Serviceabout />
+    <HomeYoutube />
+    <Blogsection />
+    <Ctasection />
+    <TestimonialsSection />
+    <FaqSection />
+  </>
+);
 
 function App() {
   return (
-    <div className="app-container" style={{ position: 'relative', minHeight: '100vh', background: '#ffffff' }}>
-      {/* 1. Star Canvas Background */}
-      <StarCanvas />
+    <BrowserRouter>
+      <div className="app-container" style={{ position: 'relative', minHeight: '100vh', background: '#ffffff' }}>
+        <StarCanvas />
+        <Header />
 
-      {/* 2. Header */}
-      <Header />
-      
-      {/* 3. Hero Slider Banner */}
-      <HeroSlider />
+        <main>
+          <Routes>
+            <Route path="/" element={<HomePageLayout />} />
+            <Route path="/about-us" element={<AboutUs />} />
+            <Route path="/brahmvid-kundli-reports" element={<KundliReports />} />
+            <Route path="/call-consultation" element={<CallConsultation />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/contact-us" element={<ContactUs />} />
+          </Routes>
+        </main>
 
-      {/* 4. Services Headline */}
-      <ServicesHead />
-
-      {/* 5. Service Cards Grid */}
-      <Servicecards />
-
-      <Serviceabout />
-
-      <HomeYoutube />
-
-      <Blogsection />
-
-      <Ctasection />
-
-      <TestimonialsSection />
-
-      <FaqSection />
-
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </BrowserRouter>
   );
 }
 

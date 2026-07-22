@@ -120,6 +120,14 @@
   width: 26px; 
   border-radius: 4px; 
 }
+@media (max-width: 1024px) {
+  /* .desktop-bg {
+    display: none !important;
+  }
+  .mobile-bg {
+    display: block !important;
+  } */
+}
 
 /* Media Queries for responsive backgrounds */
 @media (max-width: 767px) {
@@ -132,12 +140,12 @@
 }
 
 @media (min-width: 768px) {
-  .desktop-bg {
-    display: block !important;
-  }
-  .mobile-bg {
+  /* .desktop-bg {
     display: none !important;
   }
+  .mobile-bg {
+    display: block !important;
+  } */
 }
 
 /* Animations */

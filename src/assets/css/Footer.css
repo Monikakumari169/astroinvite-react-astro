@@ -1,6 +1,6 @@
 :root {
   --footer-bg-main: #8c0606; /* Dark deep red tone */
-  --footer-bg-bottom: #800000; /* Slightly darker shade for bottom bar */
+  --footer-bg-bottom: #800000; /* Darker shade for bottom bar */
   --footer-text-color: #ffffff;
   --footer-text-gold: #e5a638; /* Gold color for featured link */
 }
@@ -31,12 +31,19 @@
   gap: 40px;
 }
 
-/* Headings */
+/* Headings & Accordion Icon (Desktop Hidden) */
 .footer-heading {
   font-size: 20px;
   font-weight: 700;
   margin-bottom: 24px;
   color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.accordion-icon {
+  display: none;
 }
 
 /* Links List */
@@ -61,9 +68,9 @@
   opacity: 0.8;
 }
 
-.footer-links a.highlight-link {
+/* .footer-links a.highlight-link {
   color: var(--footer-text-gold);
-}
+} */
 
 /* Contact List */
 .contact-list {
@@ -99,6 +106,10 @@ a.contact-text:hover {
 }
 
 /* Social Icons */
+.social-col-mobile {
+  display: none; /* Only visible on mobile accordion */
+}
+
 .social-links {
   display: flex;
   align-items: center;
@@ -115,7 +126,7 @@ a.contact-text:hover {
   color: #ffffff;
   text-decoration: none;
   font-size: 14px;
-  background-color: #0d6efd; /* Fallback icon color */
+  background-color: #0d6efd;
   transition: transform 0.2s ease;
 }
 
@@ -123,7 +134,6 @@ a.contact-text:hover {
   transform: translateY(-2px);
 }
 
-/* Exact Brand Colors for Icons */
 .social-icon.facebook { background-color: #3b5998; }
 .social-icon.twitter { background-color: #000000; }
 .social-icon.youtube { background-color: #ff0000; }
@@ -147,6 +157,9 @@ a.contact-text:hover {
 .legal-links {
   display: flex;
   gap: 30px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .legal-links a {
@@ -159,28 +172,45 @@ a.contact-text:hover {
   opacity: 0.8;
 }
 
-/* Scroll To Top Button */
+/* Floating Scroll To Top Button */
 .scroll-top-btn {
-  position: absolute;
+  position: fixed;
   right: 24px;
-  bottom: 15px;
-  width: 40px;
-  height: 40px;
+  bottom: 24px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  background-color: var(--footer-bg-main);
   color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: background-color 0.2s ease, border-color 0.2s ease;
+  z-index: 999;
+  
+  /* Smooth Fade In/Out Animation */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease, background-color 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* Active Class applied on scroll */
+.scroll-top-btn.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
 
 .scroll-top-btn:hover {
-  background-color: rgba(255, 255, 255, 0.15);
+  background-color: #a80808;
   border-color: #ffffff;
+  transform: translateY(-3px);
 }
+
+
 
 /* Responsive Styles */
 @media (max-width: 992px) {
@@ -189,20 +219,77 @@ a.contact-text:hover {
   }
 }
 
+/* Mobile Accordion View (<= 768px) */
 @media (max-width: 768px) {
-  .footer-main .footer-container {
-    grid-template-columns: 1fr;
-    gap: 30px;
+  .footer-main {
+    padding: 20px 0;
   }
 
+  .footer-main .footer-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding: 0 16px;
+  }
+
+  .social-col-mobile {
+    display: block;
+  }
+
+  .footer-col {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .clickable-heading {
+    margin-bottom: 0;
+    padding: 18px 0;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  .accordion-icon {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  .footer-col-content {
+    display: none;
+    padding-bottom: 18px;
+  }
+
+  .footer-col.is-open .footer-col-content {
+    display: block;
+  }
+
+  /* Bottom Legal Links Bullet List for Mobile */
   .bottom-container {
     flex-direction: column;
-    gap: 15px;
-    text-align: center;
+    align-items: flex-start;
+    gap: 16px;
+    text-align: left;
   }
 
-  .scroll-top-btn {
+  .legal-links {
+    flex-direction: column;
+    gap: 10px;
+    padding-left: 20px;
+    list-style-type: disc;
+  }
+
+  .legal-links li {
+    font-size: 14px;
+  }
+
+  /* .scroll-top-btn {
     right: 15px;
-    bottom: 10px;
+    bottom: 15px;
+  } */
+   .scroll-top-btn {
+    right: 16px;
+    bottom: 20px;
+    width: 40px;
+    height: 40px;
   }
 }

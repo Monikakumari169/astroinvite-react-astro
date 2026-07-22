@@ -1,27 +1,28 @@
 import { useState, useEffect, useRef } from 'react';
-import './HeroSlider.css';
-import './commonSection.css';
+import './assets/css/commonSection.css';
+import './assets/css/HeroSlider.css'; // Use this if you have slider styles here
 
-// 1. HeroSlider Component
-export const HeroSlider = () => {
-  const slides = [
-    {
-      desktop_image: '/web-1.webp', 
-      mobile_image: '/ph-1-1.webp',
-      link: '#',
-    },
-    {
-      desktop_image: '/home-banner-two.webp', 
-      mobile_image: '/ph-2.webp',
-      link: '#',
-    },
-    {
-      desktop_image: '/home-page-banner.webp', 
-      mobile_image: '/ph-3.webp',
-      link: '#',
-    }
-  ];
 
+// Default slides for Home Page
+const DEFAULT_SLIDES = [
+  {
+    desktop_image: '/web-1.webp', 
+    mobile_image: '/ph-1-1.webp',
+    link: '#',
+  },
+  {
+    desktop_image: '/home-banner-two.webp', 
+    mobile_image: '/ph-2.webp',
+    link: '#',
+  },
+  {
+    desktop_image: '/home-page-banner.webp', 
+    mobile_image: '/ph-3.webp',
+    link: '#',
+  }
+];
+
+export const HeroSlider = ({ slides = DEFAULT_SLIDES }) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const handlePrev = () => {
@@ -37,26 +38,30 @@ export const HeroSlider = () => {
   };
 
   useEffect(() => {
+    if (slides.length <= 1) return;
+    
     const interval = setInterval(() => {
       handleNext();
     }, 5500);
     return () => clearInterval(interval);
-  }, [activeIndex]);
+  }, [activeIndex, slides.length]);
 
   return (
     <section id="heroSection">
       <div id="heroCarousel" className="carousel slide hero-carousel">
-        <div className="carousel-indicators">
-          {slides.map((_, index) => (
-            <button
-              key={index}
-              type="button"
-              onClick={() => handleSlideTo(index)}
-              className={index === activeIndex ? 'active' : ''}
-              aria-label={`Slide ${index + 1}`}
-            />
-          ))}
-        </div>
+        {slides.length > 1 && (
+          <div className="carousel-indicators">
+            {slides.map((_, index) => (
+              <button
+                key={index}
+                type="button"
+                onClick={() => handleSlideTo(index)}
+                className={index === activeIndex ? 'active' : ''}
+                aria-label={`Slide ${index + 1}`}
+              />
+            ))}
+          </div>
+        )}
 
         <div className="carousel-inner">
           {slides.map((slide, index) => (
@@ -905,7 +910,7 @@ export const FaqSection = ({
                   >
                     <p>{faq.question}</p>
                     <div className="faq-icon">
-                      <i className={`bi ${isOpen ? 'bi-dash' : 'bi-plus'}`}></i>
+                      <i className={`bi ${isOpen ? 'bi bi-plusS' : 'bi-plus'}`}></i>
                     </div>
                   </div>
 
